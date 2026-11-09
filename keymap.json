@@ -1,0 +1,164 @@
+[
+  // Zed already binds gx, [c, ]c, grn, grr, gri, gra, and gO.
+  {
+    "context": "Editor && mode == full && vim_mode == normal && !menu",
+    "bindings": {
+      "escape": "buffer_search::Dismiss",
+      "space ?": "zed::OpenKeymap",
+      "space q": "diagnostics::DeployCurrentFile",
+      "space space": "tab_switcher::ToggleAll",
+      "space /": "buffer_search::Deploy",
+      "space s h": "zed::OpenDocs",
+      "space s k": "zed::OpenKeymap",
+      "space s f": "file_finder::Toggle",
+      "space s g": "pane::DeploySearch",
+      "space s s": "command_palette::Toggle",
+      "space s d": "diagnostics::Deploy",
+      "space s r": "workspace::ReopenLastPicker",
+      "space s .": "file_finder::Toggle",
+      "space s n": "zed::OpenSettingsFile",
+      // Oil and ToggleTerm equivalents use Zed's project panel and terminal dock.
+      "\\": "project_panel::Toggle",
+      "space t t": "terminal_panel::Toggle",
+      "space m p": "markdown::OpenPreview",
+      "space t d": "editor::ToggleDiagnostics",
+      "space t h": "editor::ToggleInlayHints",
+      "space t b": "editor::ToggleGitBlameInline",
+      "g r d": "editor::GoToDefinition",
+      "g r shift-d": "editor::GoToDeclaration",
+      "g r t": "editor::GoToTypeDefinition",
+      "g shift-w": "project_symbols::Toggle",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "alt-left": "vim::ResizePaneLeft",
+      "alt-down": "vim::ResizePaneDown",
+      "alt-up": "vim::ResizePaneUp",
+      "alt-right": "vim::ResizePaneRight",
+      // Harpoon equivalent uses tab pinning. Numbers select tab positions in the active pane.
+      "space h a": "pane::TogglePinTab",
+      "space h e": "tab_switcher::Toggle",
+      "space h 1": [
+        "pane::ActivateItem",
+        0
+      ],
+      "space h 2": [
+        "pane::ActivateItem",
+        1
+      ],
+      "space h 3": [
+        "pane::ActivateItem",
+        2
+      ],
+      "space h 4": [
+        "pane::ActivateItem",
+        3
+      ],
+      "ctrl-shift-p": "pane::ActivatePreviousItem",
+      "ctrl-shift-n": "pane::ActivateNextItem",
+      "space g d": "git::Diff",
+      "space g h": "git_graph::Open",
+      "space g shift-h": "git::FileHistory",
+      "space h p": "editor::ToggleSelectedDiffHunks",
+      "space h b": "editor::BlameHover",
+      "space h shift-d": "git::OpenFileDiff",
+      "space h shift-r": "git::RestoreFile",
+      "space b": "editor::ToggleBreakpoint"
+    }
+  },
+  {
+    "context": "Editor && mode == full && (vim_mode == normal || vim_mode == visual) && !menu",
+    "bindings": {
+      "space f": "editor::Format",
+      "space s w": [
+        "pane::DeploySearch",
+        {
+          "whole_word": true,
+          "regex": false
+        }
+      ],
+      "space a c": "agent::Toggle",
+      "space a i": "assistant::InlineAssist",
+      "space h s": "git::ToggleStaged",
+      "space h r": "git::Restore"
+    }
+  },
+  {
+    "context": "Editor && mode == full && vim_mode == visual && !menu",
+    "bindings": {
+      "<": [
+        "action::Sequence",
+        [
+          "vim::Outdent",
+          "vim::RestoreVisualSelection"
+        ]
+      ],
+      ">": [
+        "action::Sequence",
+        [
+          "vim::Indent",
+          "vim::RestoreVisualSelection"
+        ]
+      ],
+      "space a g": "agent::AddSelectionToThread"
+    }
+  },
+  {
+    "context": "GitDiff > Editor && vim_mode == normal && !menu",
+    "bindings": {
+      "space g shift-d": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "\\": "project_panel::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "escape escape": "workspace::FocusCenterPane",
+      "j k": "workspace::FocusCenterPane",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !showing_completions",
+    "bindings": {
+      "ctrl-space": "editor::ShowCompletions",
+      "ctrl-k": "editor::ShowSignatureHelp"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && showing_completions",
+    "bindings": {
+      "ctrl-e": "editor::Cancel"
+    }
+  },
+  {
+    "context": "Workspace && !debugger_running && !debugger_stopped",
+    "bindings": {
+      "f5": "debugger::Start"
+    }
+  },
+  {
+    "context": "Workspace && debugger_stopped",
+    "bindings": {
+      "f5": "debugger::Continue",
+      "f1": "debugger::StepInto",
+      "f2": "debugger::StepOver",
+      "f3": "debugger::StepOut"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "f7": "debug_panel::ToggleFocus"
+    }
+  }
+]
