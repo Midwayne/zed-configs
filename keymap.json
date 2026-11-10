@@ -57,6 +57,7 @@
       ],
       "ctrl-shift-p": "pane::ActivatePreviousItem",
       "ctrl-shift-n": "pane::ActivateNextItem",
+      "space g .": "project_panel::ToggleHideHidden",
       "space g d": "git::Diff",
       "space g h": "git_graph::Open",
       "space g shift-h": "git::FileHistory",
@@ -113,6 +114,7 @@
   {
     "context": "ProjectPanel && not_editing",
     "bindings": {
+      "space g .": "project_panel::ToggleHideHidden",
       "\\": "project_panel::Toggle"
     }
   },
